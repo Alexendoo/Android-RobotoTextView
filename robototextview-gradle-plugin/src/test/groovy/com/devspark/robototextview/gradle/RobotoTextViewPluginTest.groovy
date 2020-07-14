@@ -16,7 +16,7 @@ class RobotoTextViewPluginTest {
             jcenter()
         }
         project.buildscript.dependencies {
-            classpath 'com.android.tools.build:gradle:2.2.0'
+            classpath 'com.android.tools.build:gradle:4.0.0'
         }
 
         project.plugins.apply(AppPlugin)
@@ -30,7 +30,7 @@ class RobotoTextViewPluginTest {
             jcenter()
         }
         project.buildscript.dependencies {
-            classpath 'com.android.tools.build:gradle:2.2.0'
+            classpath 'com.android.tools.build:gradle:4.0.0'
         }
 
         project.plugins.apply(LibraryPlugin)
@@ -50,7 +50,7 @@ class RobotoTextViewPluginTest {
             jcenter()
         }
         project.buildscript.dependencies {
-            classpath 'com.android.tools.build:gradle:2.2.0'
+            classpath 'com.android.tools.build:gradle:4.0.0'
         }
 
         project.plugins.apply(RobotoTextViewPlugin)
@@ -64,7 +64,7 @@ class RobotoTextViewPluginTest {
             jcenter()
         }
         project.buildscript.dependencies {
-            classpath 'com.android.tools.build:gradle:2.2.0'
+            classpath 'com.android.tools.build:gradle:4.0.0'
         }
 
         project.plugins.apply(AppPlugin)
