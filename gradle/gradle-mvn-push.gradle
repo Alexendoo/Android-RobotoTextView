@@ -2,7 +2,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
+    return !VERSION_NAME.contains("SNAPSHOT")
 }
 
 def getReleaseRepositoryUrl() {
@@ -122,12 +122,12 @@ afterEvaluate { project ->
         }
 
         task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-            classifier = 'javadoc'
+            archiveClassifier.set('javadoc')
             from androidJavadocs.destinationDir
         }
 
         task androidSourcesJar(type: Jar) {
-            classifier = 'sources'
+            archiveClassifier.set('sources')
             from android.sourceSets.main.java.sourceFiles
         }
     } else {
@@ -168,12 +168,12 @@ afterEvaluate { project ->
         }
 
         task javadocJar(type: Jar, dependsOn: javadoc) {
-            classifier = 'javadoc'
+            archiveClassifier.set('javadoc')
             from javadoc.destinationDir
         }
 
         task sourcesJar(type: Jar, dependsOn: classes) {
-            classifier = 'sources'
+            archiveClassifier.set('sources')
             from sourceSets.main.allSource
         }
     }

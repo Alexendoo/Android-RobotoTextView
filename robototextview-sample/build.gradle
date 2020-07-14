@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    compile project(':robototextview')
+    implementation project(':robototextview')
+    implementation libraries.supportAppCompat
 }
 
 android {

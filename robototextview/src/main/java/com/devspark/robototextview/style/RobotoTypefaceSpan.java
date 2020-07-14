@@ -55,7 +55,7 @@ public class RobotoTypefaceSpan extends MetricAffectingSpan {
      * @param textStyle  The value of "robotoTextStyle" attribute
      */
     public RobotoTypefaceSpan(Context context, @RobotoFontFamily int fontFamily,
-            @RobotoTextWeight int textWeight, @RobotoTextStyle int textStyle) {
+                              @RobotoTextWeight int textWeight, @RobotoTextStyle int textStyle) {
         this.typeface = RobotoTypefaces.obtainTypeface(context, fontFamily, textWeight, textStyle);
     }
 
