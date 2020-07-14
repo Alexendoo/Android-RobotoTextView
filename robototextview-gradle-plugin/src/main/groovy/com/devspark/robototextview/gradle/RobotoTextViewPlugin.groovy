@@ -2,6 +2,7 @@ package com.devspark.robototextview.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.Task
 import org.gradle.internal.impldep.com.google.common.annotations.VisibleForTesting
 
 class RobotoTextViewPlugin implements Plugin<Project> {
@@ -15,8 +16,8 @@ class RobotoTextViewPlugin implements Plugin<Project> {
         project.extensions.create("robototextview", RobotoTextViewPluginExtension)
 
         project.afterEvaluate {
-            def applicationPluginApplied = project.pluginManager.findPlugin('com.android.application') != null;
-            def libraryPluginApplied = project.pluginManager.findPlugin('com.android.library') != null;
+            def applicationPluginApplied = project.pluginManager.findPlugin('com.android.application') != null
+            def libraryPluginApplied = project.pluginManager.findPlugin('com.android.library') != null
 
             def variants
             if (applicationPluginApplied) {
@@ -29,9 +30,10 @@ class RobotoTextViewPlugin implements Plugin<Project> {
                 return
             }
 
+            Task mergeAssetsTask = variant.mergeAssetsProvider
             variants.all { variant ->
-                variant.mergeAssets.doLast {
-                    def fonts = project.file("$variant.mergeAssets.outputDir/fonts")
+                mergeAssetsTask.doLast {
+                    def fonts = project.file("$mergeAssetsTask.outputDir/fonts")
                     if (!fonts.exists()) {
                         project.logger.warn("Warning: $fonts.absolutePath isn't exists")
                         return
@@ -110,11 +112,11 @@ class RobotoTextViewPlugin implements Plugin<Project> {
 
     static class RobotoTextViewPluginExtension {
 
-        String[] exclude;
+        String[] exclude
 
-        String[] include;
+        String[] include
 
-        boolean log;
+        boolean log
     }
 }
 
